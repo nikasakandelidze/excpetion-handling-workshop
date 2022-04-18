@@ -1,4 +1,4 @@
-package exceptionsWorkshop.level1;
+package exceptionsWorkshop.level0;
 
 public class NormalFlowExample {
     /*
