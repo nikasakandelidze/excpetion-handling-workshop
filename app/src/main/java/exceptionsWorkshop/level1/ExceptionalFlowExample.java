@@ -20,9 +20,12 @@ public class ExceptionalFlowExample {
     }
     private  static void method3(){
         someExceptionalMethod();
-        System.out.println("Calling method 3");
+        System.out.println("Calling method 3"); // This will not be printed
 
     }
+    /*
+        Method imitating some kind of exceptional mechanism
+     */
     private static void someExceptionalMethod(){
         throw new RuntimeException("Something exceptional happened");
     }
