@@ -3,13 +3,18 @@ package exceptionsWorkshop.level3.firstExample;
 import java.util.List;
 
 public class Service {
+    /*
+    Service has a dependency on storage as described in the diagram
+     */
     private final Storage storage;
 
     public Service(Storage storage){
         this.storage = storage;
     }
 
-
+    /*
+        API of our service, that clients use directly.
+     */
     public List<String> getAllUsernames(){
         try{
             return storage.queryUsernames();
@@ -28,6 +33,11 @@ public class Service {
         }
     }
 
+    /*
+        Define new type of service exception which will be public ( known to the clients of your api )
+        This way you'll have one additional channel of communication with the clients ( apart from normal flow return values )
+        Using which you can tell user that something unexpected/exceptional happened under the hood.
+     */
     public static class OurServiceException extends RuntimeException{
         public OurServiceException(String message) {
             super(message);
